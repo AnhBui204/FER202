@@ -1,0 +1,25 @@
+{
+  "movies": [
+    {
+      "id": "1",
+      "name": "Venom",
+      "duration": 123,
+      "type": "action",
+      "trailer": ""
+    },
+    {
+      "id": "2",
+      "name": "Venom2",
+      "duration": 123,
+      "type": "action",
+      "trailer": ""
+    },
+    {
+      "id": "3",
+      "name": "Venom3",
+      "duration": 123,
+      "type": "action",
+      "trailer": ""
+    }
+  ]
+}
