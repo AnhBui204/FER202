@@ -1,0 +1,112 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "username": "user1",
+      "password": "123",
+      "role": "user"
+    },
+    {
+      "id": "2",
+      "username": "admin",
+      "password": "456",
+      "role": "admin"
+    },
+    {
+      "id": "3",
+      "username": "user2",
+      "password": "789",
+      "role": "user"
+    },
+    {
+      "id": "4",
+      "username": "manager1",
+      "password": "abc123",
+      "role": "admin"
+    },
+    {
+      "id": "5",
+      "username": "user3",
+      "password": "xyz456",
+      "role": "user"
+    },
+    {
+      "id": "6",
+      "username": "admin2",
+      "password": "admin456",
+      "role": "admin"
+    },
+    {
+      "id": "7",
+      "username": "guest",
+      "password": "guest123",
+      "role": "user"
+    },
+    {
+      "id": "8",
+      "username": "superadmin",
+      "password": "super789",
+      "role": "admin"
+    },
+    {
+      "id": "9",
+      "username": "user4",
+      "password": "password1",
+      "role": "user"
+    },
+    {
+      "id": "10",
+      "username": "admin3",
+      "password": "pass789",
+      "role": "admin"
+    },
+    {
+      "id": "11",
+      "username": "user11",
+      "password": "123",
+      "role": "user"
+    },
+    {
+      "id": "12",
+      "username": "user12",
+      "password": "123",
+      "role": "user"
+    },
+    {
+      "id": "13",
+      "username": "user13",
+      "password": "123",
+      "role": "user"
+    },
+    {
+      "id": "14",
+      "username": "user14",
+      "password": "123",
+      "role": "user"
+    },
+    {
+      "id": "15",
+      "username": "user15",
+      "password": "123",
+      "role": "user"
+    },
+    {
+      "id": "16",
+      "username": "user16",
+      "password": "123",
+      "role": "user"
+    },
+    {
+      "id": "17",
+      "username": "user17",
+      "password": "123",
+      "role": "user"
+    },
+    {
+      "id": 18,
+      "username": "user18",
+      "password": "123",
+      "role": "user"
+    }
+  ]
+}
