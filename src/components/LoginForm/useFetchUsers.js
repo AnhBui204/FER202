@@ -1,19 +1,24 @@
 // useFetchUsers.js
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 
 const useFetchUsers = () => {
   const [users, setUsers] = useState([]);
 
-  useEffect(() => {
-    const fetchUsers = async () => {
+  const fetchUsers = async () => {
+    try {
       const response = await fetch("http://localhost:3001/users");
       const data = await response.json();
       setUsers(data);
-    };
-    fetchUsers();
-  }, []);
+    } catch (error) {
+      console.error("Failed to fetch users:", error);
+    }
+  };
 
-  return users;
+  useEffect(() => {
+    fetchUsers();
+  }, []); // Gọi fetchUsers khi component được mount
+
+  return { users, fetchUsers }; // Trả về users và hàm fetchUsers
 };
 
 export default useFetchUsers;

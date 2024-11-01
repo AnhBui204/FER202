@@ -17,8 +17,7 @@ const LoginForm = ({ setIsLoggedIn }) => {
   });
   const [formError, setFormError] = useState({});
   const [successMessage, setSuccessMessage] = useState("");
-  const users = useFetchUsers();
-
+  const { users, fetchUsers } = useFetchUsers();
   const handleChange = (event) => {
     const { value, name } = event.target;
     setFormValue((prevValue) => ({
@@ -101,7 +100,7 @@ const LoginForm = ({ setIsLoggedIn }) => {
         },
         body: JSON.stringify(newUser),
       });
-
+      fetchUsers();
       setSuccessMessage("Registration successful! Please log in.");
       setIsRegistering(false);
       navigate("/login", { replace: true });

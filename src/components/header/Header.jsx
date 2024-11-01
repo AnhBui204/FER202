@@ -4,7 +4,7 @@ import "./header.css";
 
 const Header = ({ isLoggedIn, setIsLoggedIn }) => {
   const [Mobile, setMobile] = useState(false);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false); // Trạng thái dropdown
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const handleDropdownToggle = () => {
     setIsDropdownOpen(!isDropdownOpen);
@@ -17,7 +17,7 @@ const Header = ({ isLoggedIn, setIsLoggedIn }) => {
   };
 
   const handleLogout = () => {
-    setIsLoggedIn(false); // Cập nhật trạng thái đăng nhập về false
+    setIsLoggedIn(false);
   };
 
   useEffect(() => {
@@ -66,8 +66,6 @@ const Header = ({ isLoggedIn, setIsLoggedIn }) => {
           </button>
         </nav>
         <div className="account flexSB">
-          <i className="fa fa-search"></i>
-          <i className="fas fa-bell"></i>
           {isLoggedIn ? (
             <div className="user-icon" onClick={handleDropdownToggle}>
               <img src="/images/user.png" alt="User" />
