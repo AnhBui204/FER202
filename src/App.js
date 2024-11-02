@@ -1,25 +1,20 @@
-
-import './index.css';
-import Header from './Component/Header';
-import Banner from './Component/Banner';
-import MovieList from './Component/MovieList';
-import LoginForm from './Component/LoginForm';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import "./App.css";
+import HomePage from "./home/HomePage";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import SinglePage from "./components/watch/SinglePage";
+import Header from "./components/header/Header";
+import Footer from "./components/footer/Footer";
 
 function App() {
   return (
     <>
-      {/* <div className='bg-black'>
-        <Header />
-        <Banner />
-        <MovieList title={'Phim hot'} />
-        <MovieList title={'Phim đề cử'} />
-      </div> */}
       <Router>
+        <Header />
         <Routes>
-          <Route path='/' element={<LoginForm />} />
-          {/* <Route path='/HomePage' element={<Home />} /> */}
+          <Route path="/" element={<HomePage />} />
+          <Route path="/singlepage/:source/:id" element={<SinglePage />} />
         </Routes>
+        <Footer />
       </Router>
     </>
   );
