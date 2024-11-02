@@ -24,7 +24,7 @@ const SamplePrevArrow = (props) => {
     </div>
   )
 }
-const Home = ({ items }) => {
+const Home = ({ items, source }) => {
   const settings = {
     dots: false,
     infinite: true,
@@ -37,16 +37,12 @@ const Home = ({ items }) => {
   return (
     <>
       <div className='homeContainer'>
-        <Slider {...settings}>
-          {items.map((item) => {
-            return (
-              <>
-                <HomeCard key={item.id} item={item} />
-              </>
-            )
-          })}
-        </Slider>
-      </div>
+      <Slider {...settings}>
+        {items.map((item) => (
+          <HomeCard key={item.id} item={item} source={source} />
+        ))}
+      </Slider>
+    </div>
     </>
   )
 }

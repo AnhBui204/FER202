@@ -1,22 +1,63 @@
-import React, { useState } from "react"
-import Homes from "../components/homes/Homes"
-import Trending from "../components/trending/Trending"
-import Upcomming from "../components/upcoming/Upcomming"
-import { latest, recommended, upcome } from "../dummyData"
+import React, { useState, useEffect } from "react";
+import Homes from "../components/homes/Homes";
+import PhimViet from "../components/PhimViet/Trending";
+import Anime from "../components/upcoming/UpAnime";
+import Action from "../components/upcoming/UpAction";
 
 const HomePage = () => {
-  const [items, setItems] = useState(upcome)
-  const [item, setItem] = useState(latest)
-  const [rec, setRec] = useState(recommended)
+  const [animeItems, setAnimeItems] = useState([]);
+  const [actionItems, setActionItems] = useState([]);
+  const [recommendedItems, setRecommendedItems] = useState([]);
+
+  useEffect(() => {
+    // Fetch Anime data
+    const fetchAnime = async () => {
+      try {
+        const response = await fetch("http://localhost:5000/anime");
+        const data = await response.json();
+        setAnimeItems(data);
+      } catch (error) {
+        console.error("Error fetching anime data:", error);
+      }
+    };
+
+    // Fetch Action data
+    const fetchAction = async () => {
+      try {
+        const response = await fetch("http://localhost:5000/action");
+        const data = await response.json();
+        setActionItems(data);
+      } catch (error) {
+        console.error("Error fetching action data:", error);
+      }
+    };
+
+    // Fetch Recommended data
+    const fetchRecommended = async () => {
+      try {
+        const response = await fetch("http://localhost:5000/recommended");
+        const data = await response.json();
+        setRecommendedItems(data);
+      } catch (error) {
+        console.error("Error fetching recommended data:", error);
+      }
+    };
+
+    fetchAnime();
+    fetchAction();
+    fetchRecommended();
+  }, []);
+
   return (
     <>
       <Homes />
-      <Upcomming items={items} title='Upcomming Movies' />
-      <Upcomming items={item} title='Latest Movies' />
-      <Trending />
-      <Upcomming items={rec} title='Recommended Movies' />
+      <Anime items={animeItems} title="Anime" />
+      <Action items={actionItems} title="Action" /> 
+      <PhimViet />
+      {/* Uncomment and add recommended component when ready */}
+      {/* <Upcomming items={recommendedItems} title="Recommended Movies" /> */}
     </>
-  )
-}
+  );
+};
 
-export default HomePage
+export default HomePage;

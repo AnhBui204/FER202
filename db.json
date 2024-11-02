@@ -1,25 +1,233 @@
 {
-  "movies": [
+  "homeData": [
     {
-      "id": "1",
-      "name": "Venom",
-      "duration": 123,
-      "type": "action",
-      "trailer": ""
+      "id": 1,
+      "name": "Mai",
+      "rating": 4.7,
+      "time": "2hr : 15mins",
+      "desc": "Mai xoay quanh cuộc đời của một người phụ nữ đẹp tên Mai có số phận rất đặc biệt. Bởi làm nghề mát xa, Mai thường phải đối mặt với ánh nhìn soi mói, phán xét từ những người xung quanh. Và rồi Mai gặp Dương - chàng trai đào hoa lãng tử.",
+      "starring": "Phương Anh Đào, Tuấn Trần",
+      "genres": "Tình cảm",
+      "tags": "Tâm lý, Tình cảm, Gia đình",
+      "cover": "../images/phimViet/Mai.jpg",
+      "video": "/video/Mai.mp4",
+      "date": "10-Feb-2024"
     },
     {
-      "id": "2",
-      "name": "Venom2",
-      "duration": 123,
-      "type": "action",
-      "trailer": ""
+      "id": 2,
+      "name": "End Game",
+      "rating": 4.6,
+      "time": "3hr : 1mins",
+      "desc": "Sau sự kiện Thanos làm cho một nửa vũ trụ tan biến và khiến cho biệt đội Avengers thảm bại, những siêu anh hùng sống sót phải tham gia trận chiến cuối cùng trong Avengers: Endgame.",
+      "starring": "Robert Downey Jr., Chris Hemsworth, Mark Ruffalo, ...",
+      "genres": "Hành Động",
+      "tags": "Hành Động, Khoa Học Viễn Tưởng",
+      "cover": "../images/phimMy/EndGame.jpg",
+      "video": "/video/EndGame.mp4",
+      "date": "26-APR-2019"
     },
     {
-      "id": "3",
-      "name": "Venom3",
-      "duration": 123,
-      "type": "action",
-      "trailer": ""
+      "id": 3,
+      "name": "Suzume",
+      "rating": 4.8,
+      "time": "2hr : 2mins",
+      "desc": "Khóa Chặt Cửa Nào Suzume kể câu chuyện khi Suzume vô tình gặp một chàng trai trẻ đến thị trấn nơi cô sinh sống với mục đích tìm kiếm 'một cánh cửa'. Để bảo vệ Nhật Bản khỏi thảm họa, những cánh cửa rải rác khắp nơi phải được đóng lại.",
+      "starring": "Suzume Iwato, Souta Munakata, ...",
+      "genres": "Hoạt Hình",
+      "tags": "Hoạt Hình, Phiêu Lưu",
+      "cover": "../images/Anime/Suzume.jpg",
+      "video": "/video/Suzume.mp4",
+      "date": "10-MAR-2023"
+    },
+    {
+      "id": 4,
+      "name": "Doraemon",
+      "rating": 4.9,
+      "time": "1hr : 55mins",
+      "desc": "Chuẩn bị cho buổi hòa nhạc ở trường, Nobita đang tập thổi sáo - nhạc cụ mà cậu dở tệ. Thích thú trước nốt 'No' lạc quẻ của Nobita, Micca - cô bé bí ẩn đã mời Doraemon, Nobita cùng nhóm bạn đến 'Farre'.",
+      "starring": "Wasabi Mizuta, Megumi Ohara, Yumi Kakazu",
+      "genres": "Hoạt Hình",
+      "tags": "Hoạt Hình",
+      "cover": "../images/Anime/DoraDiaCau.jpg",
+      "video": "/video/Dora.mp4",
+      "date": "12-Aug-2015"
+    }
+  ],
+  "anime": [
+    {
+      "id": 1,
+      "cover": "../images/Anime/Suzume.jpg",
+      "name": "Suzume No Tojinari",
+      "video": "/video/Suzume.mp4",
+      "time": "2hr : 38mins"
+    },
+    {
+      "id": 2,
+      "cover": "../images/Anime/Tenki.jpg",
+      "name": "Tenki No Ko",
+      "video": "/video/Tenki.mp4",
+      "time": "2hr : 38mins"
+    },
+    {
+      "id": 3,
+      "cover": "../images/Anime/Kimi.jpg",
+      "name": "Kimi No Nawa",
+      "video": "/video/Kimi.mp4",
+      "time": "2hr : 38mins"
+    },
+    {
+      "id": 4,
+      "cover": "../images/Anime/kimetsu.jpg",
+      "name": "Kimetsu No Yaiba",
+      "video": "/video/Kimetsu.mp4",
+      "time": "2hr : 38mins"
+    },
+    {
+      "id": 5,
+      "cover": "../images/Anime/Red.jpg",
+      "name": "One Piece Red",
+      "video": "/video/Red.mp4",
+      "time": "2hr : 38mins"
+    }
+  ],
+  "action": [
+    {
+      "id": 1,
+      "cover": "../images/phimMy/EndGame.jpg",
+      "name": "Avenger End Game",
+      "video": "/video/EndGame.mp4",
+      "time": "2hr : 38mins"
+    },
+    {
+      "id": 2,
+      "cover": "../images/phimMy/InfinityWars.jpg",
+      "name": "Avenger Infinity Wars",
+      "video": "/video/InfiWar.mp4",
+      "time": "2hr : 38mins"
+    },
+    {
+      "id": 3,
+      "cover": "../images/phimMy/NoWayHome.jpg",
+      "name": "Spiderman No Way Home",
+      "video": "/video/NoHome.mp4",
+      "time": "2hr : 38mins"
+    },
+    {
+      "id": 4,
+      "cover": "../images/phimMy/Avatar.jpg",
+      "name": "Avatar",
+      "video": "/video/Avatar.mp4",
+      "time": "2hr : 38mins"
+    },
+    {
+      "id": 5,
+      "cover": "../images/phimMy/Doctor.jpg",
+      "name": "Doctor Strange",
+      "video": "/video/Doctor.mp4",
+      "time": "2hr : 38mins"
+    }
+  ],
+  "phimviet": [
+    {
+      "id": 1,
+      "name": "Bố Già",
+      "rating": 4.7,
+      "time": "2hr : 8mins",
+      "desc": "Phim sẽ xoay quanh lối sống thường nhật của một xóm lao động nghèo, ở đó có bộ tứ anh em Giàu - Sang - Phú - Quý với Ba Sang sẽ là nhân vật chính, hay lo chuyện bao đồng nhưng vô cùng thương con cái. Câu chuyện phim tập trung về hai cha con Ba Sang (Trấn Thành) và Quắn (Tuấn Trần).",
+      "starring": "Trấn Thành, Tuấn Trần, Ngân Chi, NSND Ngọc Giàu,...",
+      "genres": "Comedy",
+      "tags": "Gia đình, Comedy",
+      "cover": "../images/phimViet/BoGia.jpg",
+      "video": "/video/BoGia.mp4",
+      "date": "12-MAR-2021"
+    },
+    {
+      "id": 2,
+      "name": "Quỳnh",
+      "rating": 4.6,
+      "time": "1hr : 38mins",
+      "desc": "Trạng Quỳnh là một bộ phim hoạt hình 3D Việt Nam do công ty sản xuất phim hoạt hình nổi tiếng của Việt Nam là Skyline Media sản xuất. Phim được chuyển thể từ tác phẩm văn học cùng tên của nhà văn Nam Cao.",
+      "starring": "Trần Quốc Anh, Nhã Phương, Trấn Thành,...",
+      "genres": "Comedy",
+      "tags": "Comedy, Adventure",
+      "cover": "../images/phimViet/TrangQuynh.jpg",
+      "video": "/video/Quynh.mp4",
+      "date": "5-FEB-2019"
+    },
+    {
+      "id": 3,
+      "name": "Hai Muối",
+      "rating": 4.8,
+      "time": "1hr : 58mins",
+      "desc": "Muối - một cô gái mất mẹ từ khi vừa lọt lòng và lớn lên trong tình yêu thương của cha tại vùng đất xã đảo Thiềng Liềng. Bước ngoặt của hai cha con bắt đầu khi Muối trưởng thành, quyết định lên thành phố học tập và làm việc với ước mơ đổi đời để phụ giúp cha.",
+      "starring": "NSND Hồng Vân, NSND Việt Anh, Quyền Linh, NSƯT Công Ninh, ...",
+      "genres": "Gia đình",
+      "tags": "Gia đình, Tâm lý",
+      "cover": "../images/phimViet/2Muoi.jpg",
+      "video": "/video/2Muoi.mp4",
+      "date": "30-AUG-2024"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "username": "user1",
+      "password": "123",
+      "role": "user"
+    },
+    {
+      "id": 2,
+      "username": "admin",
+      "password": "456",
+      "role": "admin"
+    },
+    {
+      "id": 3,
+      "username": "user2",
+      "password": "789",
+      "role": "user"
+    },
+    {
+      "id": 4,
+      "username": "manager1",
+      "password": "abc123",
+      "role": "admin"
+    },
+    {
+      "id": 5,
+      "username": "user3",
+      "password": "xyz456",
+      "role": "user"
+    },
+    {
+      "id": 6,
+      "username": "admin2",
+      "password": "admin456",
+      "role": "admin"
+    },
+    {
+      "id": 7,
+      "username": "guest",
+      "password": "guest123",
+      "role": "user"
+    },
+    {
+      "id": 8,
+      "username": "superadmin",
+      "password": "super789",
+      "role": "admin"
+    },
+    {
+      "id": 9,
+      "username": "user4",
+      "password": "password1",
+      "role": "user"
+    },
+    {
+      "id": 10,
+      "username": "admin3",
+      "password": "pass789",
+      "role": "admin"
     }
   ]
 }
