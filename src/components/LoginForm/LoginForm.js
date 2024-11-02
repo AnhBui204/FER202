@@ -5,6 +5,7 @@ import "./LoginForm.css";
 import backgroundImage from "../Assets/background.jpg";
 import Login from "./Login";
 import Register from "./Register";
+import ForgotPassword from "./ForgotPassword"; // Import the ForgotPassword component
 import useFetchUsers from "./useFetchUsers";
 
 const LoginForm = ({ setIsLoggedIn }) => {
@@ -18,6 +19,8 @@ const LoginForm = ({ setIsLoggedIn }) => {
   const [formError, setFormError] = useState({});
   const [successMessage, setSuccessMessage] = useState("");
   const { users, fetchUsers } = useFetchUsers();
+  const [isForgotPassword, setIsForgotPassword] = useState(false);
+
   const handleChange = (event) => {
     const { value, name } = event.target;
     setFormValue((prevValue) => ({
@@ -107,6 +110,28 @@ const LoginForm = ({ setIsLoggedIn }) => {
     }
   };
 
+  const handleForgotPasswordSubmit = async (
+    username,
+    setMessage,
+    setError,
+    setIsUsernameValid
+  ) => {
+    try {
+      const response = await fetch("http://localhost:3001/users");
+      const users = await response.json();
+      const user = users.find((user) => user.username === username);
+      if (user) {
+        setMessage("Please input new password.");
+        setIsUsernameValid(true);
+      } else {
+        setError("Username not found. Please try again.");
+        setIsUsernameValid(false);
+      }
+    } catch {
+      setError("An error occurred. Please try again later.");
+    }
+  };
+
   return (
     <div
       className="login-body"
@@ -116,7 +141,7 @@ const LoginForm = ({ setIsLoggedIn }) => {
         {successMessage && (
           <div className="success-feedback">{successMessage}</div>
         )}
-        {!isRegistering ? (
+        {!isRegistering && !isForgotPassword ? (
           <>
             <Login
               formValue={formValue}
@@ -132,7 +157,20 @@ const LoginForm = ({ setIsLoggedIn }) => {
                 </a>
               </p>
             </div>
+            <div className="forgot-password-link">
+              <p>
+                <a href="#" onClick={() => setIsForgotPassword(true)}>
+                  Forgot Password?
+                </a>
+              </p>
+            </div>
           </>
+        ) : isForgotPassword ? (
+          <ForgotPassword
+            handleForgotPasswordSubmit={handleForgotPasswordSubmit}
+            handleBackToLogin={() => setIsForgotPassword(false)}
+            fetchUsers={fetchUsers}
+          />
         ) : (
           <>
             <Register
