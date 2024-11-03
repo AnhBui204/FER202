@@ -1,194 +1,3 @@
-// // components/movies/MoviesList.js
-// import React, { useState } from "react";
-// import Action from "../upcoming/UpAction";
-// import { mvList, action } from "../../dummyData";
-// import GenreFilter from "./GenreFilter";
-// import SearchBar from "./SearchBar";
-// import LanguageSelector from "./LanguageSelector";
-// import Pagination from "./Pagination";
-// import "./moviesList.css";
-// import { Link } from "react-router-dom"
-
-// /*const HomeCard = ({ item: { id, cover, name, rating, time, desc, starring, genres, tags, video } }) => { */
-
-// const MoviesList = () => {
-//   const [movies] = useState(mvList);
-//   const [item, setItem] = useState(action);
-//   const [currentPage, setCurrentPage] = useState(1);
-//   const moviesPerPage = 8;
-
-//   const indexOfLastMovie = currentPage * moviesPerPage;
-//   const indexOfFirstMovie = indexOfLastMovie - moviesPerPage;
-//   const currentMovies = movies.slice(indexOfFirstMovie, indexOfLastMovie);
-//   const totalPages = Math.ceil(movies.length / moviesPerPage);
-
-//   return (
-//     <>
-//       <div className="movies-list-body">
-//         <div className="movies-list-header">
-//           <h1 className="movies-title">Movies List</h1>
-//           {/* <SearchBar /> */}
-//         </div>
-//         <div className="filter-section">
-//           <GenreFilter />
-//           <SearchBar />
-//           <LanguageSelector />
-//         </div>
-
-//         <div className="movies-grid">
-//           {currentMovies.map((movie) => (
-//             <div key={movie.id} className="movie-card">
-//               <div className="image-container">
-//                 <img src={movie.cover} alt={movie.name} />
-//                 <div className="overlay">
-//                   {/* text*/}
-//                 </div>
-//               </div>
-//               <div className="movie-info">
-//                 <h4>{movie.name}</h4>
-//                 <p>{movie.time}</p>
-//               </div>
-//             </div>
-//           ))}
-//         </div>
-
-
-
-//         <Pagination
-//           currentPage={currentPage}
-//           totalPages={totalPages}
-//           onPageChange={setCurrentPage}
-//         />
-//       </div>
-
-//       <Action items={item} title='Action' /> 
-//     </>
-//   );
-// };
-
-// export default MoviesList;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// components/movies/MoviesList.js
-
-// import React, { useState, useEffect } from "react";
-// import GenreFilter from "./GenreFilter";
-// import SearchBar from "./SearchBar";
-// import Pagination from "./Pagination";
-// import "./moviesList.css";
-// import Action from "../upcoming/UpAction"; // Assuming you still want Action
-// import { action } from "../../dummyData";
-
-// const MoviesList = () => {
-//   const [movies, setMovies] = useState([]);
-//   const [currentCategory, setCurrentCategory] = useState("homeData");
-//   const [currentPage, setCurrentPage] = useState(1);
-//   const [item, setItem] = useState(action);
-//   const moviesPerPage = 8;
-
-//   // Fetch data from JSON server
-//   useEffect(() => {
-//     fetch(`http://localhost:3000/${currentCategory}`)
-//       .then(response => response.json())
-//       .then(data => setMovies(data))
-//       .catch(error => console.error("Error fetching data:", error));
-//   }, [currentCategory]);
-
-//   // Handle pagination
-//   const indexOfLastMovie = currentPage * moviesPerPage;
-//   const indexOfFirstMovie = indexOfLastMovie - moviesPerPage;
-//   const currentMovies = movies.slice(indexOfFirstMovie, indexOfLastMovie);
-//   const totalPages = Math.ceil(movies.length / moviesPerPage);
-
-//   // Handle category change
-//   const handleCategoryChange = (category) => {
-//     setCurrentCategory(category);
-//     setCurrentPage(1); // Reset to first page when category changes
-//   };
-
-//   return (
-//     <>
-//       <div className="movies-list-body">
-
-//         {/* <div className="filmstrip">
-//           <h1>Danh Sách Phim</h1>
-//         </div> */}
-
-//         <div className="filter-section">
-//           <GenreFilter onCategoryChange={handleCategoryChange} />
-//           <SearchBar />
-//         </div>
-
-//         <div className="movies-grid">
-//           {currentMovies.map((movie) => (
-//             <div key={movie.id} className="movie-card">
-//               <div className="image-container">
-//                 <img src={movie.cover} alt={movie.name} />
-//               </div>
-//               <div className="movie-info">
-//                 <h4>{movie.name}</h4>
-//                 <p>
-//                   <i className="fas fa-star" style={{ color: 'gold', marginRight: '5px' }}></i>
-//                   {movie.rating}
-//                 </p>
-//               </div>
-//             </div>
-//           ))}
-//         </div>
-
-//         <Pagination
-//           currentPage={currentPage}
-//           totalPages={totalPages}
-//           onPageChange={setCurrentPage}
-//         />
-//       </div>
-//       <Action items={item} title='Action' />
-//     </>
-//   );
-// };
-
-// export default MoviesList;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // components/movies/MoviesList.js
 
 import React, { useState, useEffect } from "react";
@@ -196,6 +5,7 @@ import GenreFilter from "./GenreFilter";
 import SearchBar from "./SearchBar";
 import "./moviesList.css";
 import Action from "../upcoming/UpAction"; // Assuming you still want Action
+import { Link } from "react-router-dom";
 
 const MoviesList = () => {
   const [movies, setMovies] = useState([]);
@@ -243,6 +53,15 @@ const MoviesList = () => {
             <div key={movie.id} className="movie-card">
               <div className="image-container">
                 <img src={movie.cover} alt={movie.name} />
+                <div className="overlay">
+                  <div className="playButton row">
+                    <Link to={`/singlepage/${currentCategory}/${movie.id}`}>
+                      <button className="Watch">
+                        Play Now
+                      </button>
+                    </Link>
+                  </div>
+                </div>
               </div>
               <div className="movie-info">
                 <h4>{movie.name}</h4>
