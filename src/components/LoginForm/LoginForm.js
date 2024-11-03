@@ -152,16 +152,24 @@ const LoginForm = ({ setIsLoggedIn }) => {
             <div className="register-link">
               <p>
                 Don't have an account?{" "}
-                <a href="#" onClick={() => setIsRegistering(true)}>
+                <button
+                  type="button"
+                  className="link-button"
+                  onClick={() => setIsRegistering(true)}
+                >
                   Register
-                </a>
+                </button>
               </p>
             </div>
             <div className="forgot-password-link">
               <p>
-                <a href="#" onClick={() => setIsForgotPassword(true)}>
+                <button
+                  type="button"
+                  className="link-button"
+                  onClick={() => setIsForgotPassword(true)}
+                >
                   Forgot Password?
-                </a>
+                </button>
               </p>
             </div>
           </>
@@ -182,9 +190,13 @@ const LoginForm = ({ setIsLoggedIn }) => {
             <div className="login-link">
               <p>
                 Already have an account?{" "}
-                <a href="#" onClick={() => setIsRegistering(false)}>
+                <button
+                  type="button"
+                  className="link-button"
+                  onClick={() => setIsRegistering(false)}
+                >
                   Login
-                </a>
+                </button>
               </p>
             </div>
           </>

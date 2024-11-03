@@ -9,18 +9,18 @@ const SinglePage = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/${source}`);
-        const data = await response.json();
-        const foundItem = data.find((item) => item.id === parseInt(id));
-
-        if (foundItem) {
-          setItem(foundItem);
+        const response = await fetch(`http://localhost:5000/${source}/${id}`);
+        if (response.ok) {
+          const data = await response.json();
+          setItem(data);
+        } else {
+          setItem(null);
         }
       } catch (error) {
         console.error("Error fetching data:", error);
       }
     };
-
+    
     fetchData();
   }, [source, id]);
 
