@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-d
 import "./App.css";
 import "./index.css";
 import MovieContextProvider from "./components/admin/MovieContext"; // Move this to the top
+import MoviesList from "./components/movies/MoviesList";
+
 
 // Lazy load components
 const HomePage = lazy(() => import("./home/HomePage"));
@@ -47,6 +49,18 @@ function App() {
                   </>
                 }
               />
+
+              <Route
+                path="/movies"
+                element={
+                  <>
+                    <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+                    <MoviesList />
+                    <Footer />
+                  </>
+                }
+              />
+  
               {/* Route cho Admin */}
               <Route path="/admin" element={<ManageMovie />} />
 
