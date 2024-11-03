@@ -1,0 +1,189 @@
+.filmstrip {
+  --background: white;
+  --size: 8px; /* Giảm kích thước nền */
+  background-image:
+    linear-gradient(to right, var(--background) var(--size), transparent var(--size)),
+    linear-gradient(to bottom, var(--background) var(--size), transparent var(--size)),
+    linear-gradient(to right, var(--background) var(--size), transparent var(--size)),
+    linear-gradient(to bottom, var(--background) var(--size), transparent var(--size)),
+    linear-gradient(to bottom, transparent var(--size), var(--background) var(--size));
+  background-size: calc(var(--size) * 2) var(--size), calc(var(--size) * 2) var(--size), calc(var(--size) * 2) var(--size), calc(var(--size) * 2) var(--size), 100% calc(100% - var(--size) * 3);
+  background-repeat: repeat-x;
+  background-position: 0 var(--size), top left, 0 calc(100% - var(--size)), bottom left, 0 var(--size);
+  padding: calc(var(--size) * 2) calc(var(--size) * 5); /* Giảm padding */
+  box-sizing: border-box;
+  margin-left: 500px;
+  height: 10vh; /* Giảm chiều cao */
+  width: 23%; /* Giảm chiều rộng */
+  color: black;
+}
+
+.filmstrip h1 {
+  text-align: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  line-height: 1.2; /* Giảm khoảng cách giữa các dòng */
+  font-size: 1.5rem; /* Giảm kích thước chữ */
+}
+
+/* moviesList.css */
+.genre-filter {
+  display: flex;
+  gap: 10px; /* Khoảng cách giữa các nút */
+}
+
+.genre-filter select.genre-button {
+  font-size: 1.2rem;
+  padding: 8px 16px;
+  background-color: #d32f2f; /* Background color of select */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.genre-filter select.genre-button option {
+  background-color: #b0aeae; /* Background color for options by default */
+  color: white;
+}
+
+
+/* Định dạng cho tiêu đề */
+.movies-title {
+  border-radius: 10px;
+  background-color: #d32f2f;
+  padding: 5px;
+  font-size: 24px;
+  color: white;
+  font-weight: bold;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #d32f2f;
+  display: inline-block;
+}
+
+.search-bar input {
+  padding: 10px 30px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  outline: none;
+  margin-right: 25px;
+  font-size: medium;
+} 
+
+.movies-list-body {
+  padding: 30px 70px;
+}
+
+.movies-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.movies-title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.filter-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.genre-filter {
+  display: flex;
+  gap: 10px;
+}
+
+.search-bar {
+  margin-left: auto;
+}
+
+
+.movies-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Still 4 cards per row */
+  gap: 30px; /* Increase gap for larger cards */
+}
+
+.movie-card {
+  position: relative; /* Needed to position the hover info correctly */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 300px;
+}
+
+.image-container {
+  position: relative; /* Đặt overlay tương đối so với container hình ảnh */
+}
+
+
+.movie-card img {
+  width: 100%;
+  height: 450px; /* Increased the height of the images */
+  object-fit: cover;
+}
+
+.movie-info {
+  text-align: center;
+  padding: 16px 0;
+  font-size: 1.1em; /* Optional: slightly larger font for movie info */
+}
+
+ /* pagination.css */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7); /* Màu nền tối với độ trong suốt */
+  color: white; /* Màu chữ trắng */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0; /* Bắt đầu với độ trong suốt 0 */
+  transition: opacity 0.3s ease; /* Hiệu ứng chuyển tiếp khi hover */
+}
+
+.image-container:hover .overlay {
+  opacity: 1; /* Hiện overlay khi hover vào ảnh */
+}
+
+.pagination button {
+  padding: 8px 16px;
+  margin: 0 5px;
+  background-color: #d32f2f;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.pagination button:disabled {
+  background-color: #b0aeae;
+  cursor: not-allowed;
+}
+
+.pagination span {
+  font-weight: bold;
+  margin: 0 10px;
+}
