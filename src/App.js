@@ -1,7 +1,6 @@
 import React, { useState, Suspense, lazy } from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import "./App.css";
-import "./index.css";
 import MovieContextProvider from "./components/admin/MovieContext"; // Move this to the top
 
 // Lazy load components
@@ -18,7 +17,7 @@ function App() {
   return (
     <Router>
       <MovieContextProvider>
-        <div className="container">
+        <div className="">
           <Suspense fallback={<div>Loading...</div>}>
             <Routes>
               {/* Route cho trang đăng nhập, không có Header và Footer */}

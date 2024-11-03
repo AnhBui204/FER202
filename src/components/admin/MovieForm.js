@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { MovieContext } from './MovieContext';
 import { Form, Button } from 'react-bootstrap';
 import { addMovie } from './MovieService';
-import '../../admin.css';
+
 
 const MovieForm = ({ onSave, editingMovie }) => {
   const { dispatch } = useContext(MovieContext);

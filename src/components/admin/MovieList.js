@@ -1,10 +1,10 @@
 import React from 'react';
-import '../../admin.css';
+
 import { Button } from 'react-bootstrap';
 
 const MovieList = ({ movies, onDelete, onEdit }) => {
     return (
-        <div className='container bg-white text-black space-y-3 my-5'>
+        <div className=' bg-white text-black space-y-3 my-5'>
             <div className='flex items-center'>
                 <input
                     type='text'

@@ -36,7 +36,7 @@ const ManageMovie = () => {
     }
 
     return (
-        <div className='movie-management'>
+        <div className='movie-management container'>
             <h2 className='font-bold text-3xl text-center my-4'>Movie Management</h2>
 
                 <h3 className='font-bold my-4'>Home Movies</h3>
