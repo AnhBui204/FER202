@@ -1,30 +1,17 @@
-.filmstrip {
-  --background: white;
-  --size: 8px; /* Giảm kích thước nền */
-  background-image:
-    linear-gradient(to right, var(--background) var(--size), transparent var(--size)),
-    linear-gradient(to bottom, var(--background) var(--size), transparent var(--size)),
-    linear-gradient(to right, var(--background) var(--size), transparent var(--size)),
-    linear-gradient(to bottom, var(--background) var(--size), transparent var(--size)),
-    linear-gradient(to bottom, transparent var(--size), var(--background) var(--size));
-  background-size: calc(var(--size) * 2) var(--size), calc(var(--size) * 2) var(--size), calc(var(--size) * 2) var(--size), calc(var(--size) * 2) var(--size), 100% calc(100% - var(--size) * 3);
-  background-repeat: repeat-x;
-  background-position: 0 var(--size), top left, 0 calc(100% - var(--size)), bottom left, 0 var(--size);
-  padding: calc(var(--size) * 2) calc(var(--size) * 5); /* Giảm padding */
-  box-sizing: border-box;
-  margin-left: 500px;
-  height: 10vh; /* Giảm chiều cao */
-  width: 23%; /* Giảm chiều rộng */
-  color: black;
+.overlay .playButton .Watch {
+  background-color: transparent; /* Nền trong suốt */
+  border: 2px solid #e50813; /* Viền đỏ */
+  color: #e50813; /* Màu chữ đỏ */
+  padding: 10px 20px; /* Khoảng cách bên trong */
+  font-size: 16px; /* Cỡ chữ */
+  font-weight: bold; /* In đậm chữ */
+  cursor: pointer; /* Con trỏ chỉ tay khi hover */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Hiệu ứng chuyển */
 }
 
-.filmstrip h1 {
-  text-align: center;
-  align-items: center;
-  margin: 0;
-  padding: 0;
-  line-height: 1.2; /* Giảm khoảng cách giữa các dòng */
-  font-size: 1.5rem; /* Giảm kích thước chữ */
+.overlay .playButton .Watch:hover {
+  background-color: #e50813; /* Màu nền đỏ khi hover */
+  color: white; /* Màu chữ trắng khi hover */
 }
 
 /* moviesList.css */
