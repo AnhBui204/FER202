@@ -1,6 +1,6 @@
 import React, { lazy, useContext, useState } from 'react'
 import { MovieContext } from './MovieContext'
-import { deleteMovies, updateMovies } from './MovieService'
+import { deleteMovie, updateMovies } from './MovieService'
 import DeleteModal from './DeleteModal'
 import { loadWithDelay } from '../utils/loadWithDelay';
 import '../../admin.css'
@@ -20,7 +20,7 @@ const ManageMovie = () => {
     }
 
     const confirmDelete = async () => {
-        await deleteMovies(deleteMovieId)
+        await deleteMovie(deleteMovieId)
         dispatch({ type: 'DELETE_MOVIE', payload: deleteMovieId })
         setShowModal(false)
     }
@@ -39,8 +39,17 @@ const ManageMovie = () => {
         <div className='movie-management'>
             <h2 className='font-bold text-3xl text-center my-4'>Movie Management</h2>
 
+                <h3 className='font-bold my-4'>Home Movies</h3>
+                <MovieList movies={state.homeData} onDelete={handleDelete} onEdit={handleEdit}/>
 
-            <MovieList movies={state.movies} onDelete={handleDelete} onEdit={handleEdit} />
+                <h3 className='font-bold my-4'>Action Movies</h3>
+                <MovieList movies={state.actionData} onDelete={handleDelete} onEdit={handleEdit}/>
+
+                <h3 className='font-bold my-4'>Anime Movies</h3>
+                <MovieList movies={state.animeData} onDelete={handleDelete} onEdit={handleEdit} />
+
+                <h3 className='font-bold my-4'>Phim Viet</h3>
+                <MovieList movies={state.phimvietData} onDelete={handleDelete} onEdit={handleEdit}/>
             <MovieForm onSave={handleSave} editingMovie={editingMovie} />
             <DeleteModal show={showModal} onHide={() => setShowModal(false)} onConfirm={confirmDelete} />
         </div>

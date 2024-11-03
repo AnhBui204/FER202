@@ -1,30 +1,36 @@
-import React, {createContext, useReducer, useEffect} from 'react'
-import { movieReducer, initalState } from './MovieReducer'
-import { fetchMovies } from './MovieService'
+import React, { createContext, useReducer, useEffect } from 'react';
+import { movieReducer, initialState } from './MovieReducer';
+import { fetchMovies } from './MovieService';
 
-export const MovieContext = createContext()
+export const MovieContext = createContext();
 
-const MovieContextProvider = ({children}) => {
-    const [state, dispatch] = useReducer(movieReducer, initalState)
+const MovieContextProvider = ({ children }) => {
+    const [state, dispatch] = useReducer(movieReducer, initialState);
+
     useEffect(() => {
-        const getMovies = async() => {
-            try{
-                const movies = await fetchMovies()
-                dispatch({type: 'FETCH_SUCCESS', payload: movies})
-            }catch(error){
-                dispatch({type: 'FETCH_ERROR'})
-            }
-        }
-        getMovies()
-    },[])
+        const loadCategories = async () => {
+            try {
+                const [homeData, actionData, animeData, phimvietData] = await Promise.all([
+                    fetchMovies('homeData'),
+                    fetchMovies('action'),
+                    fetchMovies('anime'),
+                    fetchMovies('phimviet')
+                ]);
 
+                dispatch({ type: 'FETCH_SUCCESS', payload: { homeData, actionData, animeData, phimvietData } });
+            } catch (error) {
+                console.error("Failed to fetch movies:", error);
+                dispatch({ type: 'FETCH_ERROR' });
+            }
+        };
+        loadCategories();
+    }, []);
 
     return (
-        <MovieContext.Provider value={{state, dispatch}}>
+        <MovieContext.Provider value={{ state, dispatch }}>
             {children}
         </MovieContext.Provider>
-    
-  )
-}
+    );
+};
 
-export default MovieContextProvider
+export default MovieContextProvider;
