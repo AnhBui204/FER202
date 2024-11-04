@@ -1,7 +1,7 @@
 {
   "homeData": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Mai",
       "rating": 4.7,
       "time": "2hr : 15mins",
@@ -14,7 +14,7 @@
       "date": "10-Feb-2024"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "End Game",
       "rating": 4.6,
       "time": "3hr : 1mins",
@@ -27,7 +27,7 @@
       "date": "26-APR-2019"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Suzume",
       "rating": 4.8,
       "time": "2hr : 2mins",
@@ -40,7 +40,7 @@
       "date": "10-MAR-2023"
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Doraemon",
       "rating": 4.9,
       "time": "1hr : 55mins",
@@ -55,35 +55,35 @@
   ],
   "anime": [
     {
-      "id": 1,
+      "id": "1",
       "cover": "../images/Anime/Suzume.jpg",
       "name": "Suzume No Tojinari",
       "video": "/video/Suzume.mp4",
       "time": "2hr : 38mins"
     },
     {
-      "id": 2,
+      "id": "2",
       "cover": "../images/Anime/Tenki.jpg",
       "name": "Tenki No Ko",
       "video": "/video/Tenki.mp4",
       "time": "2hr : 38mins"
     },
     {
-      "id": 3,
+      "id": "3",
       "cover": "../images/Anime/Kimi.jpg",
       "name": "Kimi No Nawa",
       "video": "/video/Kimi.mp4",
       "time": "2hr : 38mins"
     },
     {
-      "id": 4,
+      "id": "4",
       "cover": "../images/Anime/kimetsu.jpg",
       "name": "Kimetsu No Yaiba",
       "video": "/video/Kimetsu.mp4",
       "time": "2hr : 38mins"
     },
     {
-      "id": 5,
+      "id": "5",
       "cover": "../images/Anime/Red.jpg",
       "name": "One Piece Red",
       "video": "/video/Red.mp4",
@@ -92,35 +92,35 @@
   ],
   "action": [
     {
-      "id": 1,
+      "id": "1",
       "cover": "../images/phimMy/EndGame.jpg",
       "name": "Avenger End Game",
       "video": "/video/EndGame.mp4",
       "time": "2hr : 38mins"
     },
     {
-      "id": 2,
+      "id": "2",
       "cover": "../images/phimMy/InfinityWars.jpg",
       "name": "Avenger Infinity Wars",
       "video": "/video/InfiWar.mp4",
       "time": "2hr : 38mins"
     },
     {
-      "id": 3,
+      "id": "3",
       "cover": "../images/phimMy/NoWayHome.jpg",
       "name": "Spiderman No Way Home",
       "video": "/video/NoHome.mp4",
       "time": "2hr : 38mins"
     },
     {
-      "id": 4,
+      "id": "4",
       "cover": "../images/phimMy/Avatar.jpg",
       "name": "Avatar",
       "video": "/video/Avatar.mp4",
       "time": "2hr : 38mins"
     },
     {
-      "id": 5,
+      "id": "5",
       "cover": "../images/phimMy/Doctor.jpg",
       "name": "Doctor Strange",
       "video": "/video/Doctor.mp4",
@@ -129,7 +129,7 @@
   ],
   "phimviet": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Bố Già",
       "rating": 4.7,
       "time": "2hr : 8mins",
@@ -142,7 +142,7 @@
       "date": "12-MAR-2021"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Quỳnh",
       "rating": 4.6,
       "time": "1hr : 38mins",
@@ -155,7 +155,7 @@
       "date": "5-FEB-2019"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Hai Muối",
       "rating": 4.8,
       "time": "1hr : 58mins",
@@ -164,70 +164,76 @@
       "genres": "Gia đình",
       "tags": "Gia đình, Tâm lý",
       "cover": "../images/phimViet/2Muoi.jpg",
-      "video": "/video/2Muoi.mp4",
+      "video": "/video/EndGame.mp4",
       "date": "30-AUG-2024"
     }
   ],
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "username": "user1",
       "password": "123",
       "role": "user"
     },
     {
-      "id": 2,
+      "id": "2",
       "username": "admin",
       "password": "456",
       "role": "admin"
     },
     {
-      "id": 3,
+      "id": "3",
       "username": "user2",
       "password": "789",
       "role": "user"
     },
     {
-      "id": 4,
+      "id": "4",
       "username": "manager1",
       "password": "abc123",
       "role": "admin"
     },
     {
-      "id": 5,
+      "id": "5",
       "username": "user3",
       "password": "xyz456",
       "role": "user"
     },
     {
-      "id": 6,
+      "id": "6",
       "username": "admin2",
       "password": "admin456",
       "role": "admin"
     },
     {
-      "id": 7,
+      "id": "7",
       "username": "guest",
       "password": "guest123",
       "role": "user"
     },
     {
-      "id": 8,
+      "id": "8",
       "username": "superadmin",
       "password": "super789",
       "role": "admin"
     },
     {
-      "id": 9,
+      "id": "9",
       "username": "user4",
       "password": "password1",
       "role": "user"
     },
     {
-      "id": 10,
+      "id": "10",
       "username": "admin3",
       "password": "pass789",
       "role": "admin"
+    },
+    {
+      "id": 11,
+      "username": "concac",
+      "password": "ngu",
+      "role": "user"
     }
   ]
 }

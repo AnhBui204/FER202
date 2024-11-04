@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
-import "./home.css";
-import Home from "./Home";
+import React, { useState, useEffect } from "react"
+import "./home.css"
+import { homeData } from "../../dummyData"
+import Home from "./Home"
 
 const Homes = () => {
-  const [items, setItems] = useState([]); // Initialize as an empty array
-
+  const [items, setItems] = useState(homeData)
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -21,15 +21,14 @@ const Homes = () => {
 
     fetchData();
   }, []); // Empty dependency array ensures this runs only once on mount
-
   return (
     <>
-      <section className="home">
-        <Home items={items} source="home" />
+      <section className='home'>
+        <Home items={items} source="homeData" />
       </section>
-      <div className="margin"></div>
+      <div className='mragin'></div>
     </>
-  );
-};
+  )
+}
 
-export default Homes;
+export default Homes

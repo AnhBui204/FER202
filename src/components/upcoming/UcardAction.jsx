@@ -20,4 +20,4 @@ const UcardAction = ({ item: { id, cover, name, time } }) => {
   )
 }
 
-export default UcardAction;
+export default UcardAction

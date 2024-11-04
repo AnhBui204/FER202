@@ -1,51 +1,86 @@
-import React, { useState } from "react"
-import "./header.css"
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import "./header.css";
 
-const Header = () => {
-  const [Mobile, setMobile] = useState(false)
+const Header = ({ isLoggedIn, setIsLoggedIn }) => {
+  const [Mobile, setMobile] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  const handleDropdownToggle = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
+
+  const handleClickOutside = (event) => {
+    if (isDropdownOpen && !event.target.closest(".user-icon")) {
+      setIsDropdownOpen(false);
+    }
+  };
+
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+  };
+
+  useEffect(() => {
+    document.addEventListener("click", handleClickOutside);
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, [isDropdownOpen]);
+
   return (
-    <>
-      <header>
-        <div className='container flexSB'>
-          <nav className='flexSB'>
-            <div className='logo'>
-              <img src='./images/logo.png' alt='' />
-            </div>
-            {/*<ul className='flexSB'>*/}
-            <ul className={Mobile ? "navMenu-list" : "flexSB"} onClick={() => setMobile(false)}>
-              <li>
-                <a href='/'>Home</a>
-              </li>
-              <li>
-                <a href='/'>Series</a>
-              </li>
-              <li>
-                <a href='/'>Movies</a>
-              </li>
-              <li>
-                <a href='/'>Pages</a>
-              </li>
-              <li>
-                <a href='/'>Pricing</a>
-              </li>
-              <li>
-                <a href='/'>Contact</a>
-              </li>
-            </ul>
-            <button className='toggle' onClick={() => setMobile(!Mobile)}>
-              {Mobile ? <i className='fa fa-times'></i> : <i className='fa fa-bars'></i>}
-            </button>
-          </nav>
-          <div className='account flexSB'>
-            <i className='fa fa-search'></i>
-            <i class='fas fa-bell'></i>
-            <i className='fas fa-user'></i>
-            <button>Subscribe Now</button>
+    <header>
+      <div className="container flexSB">
+        <nav className="flexSB">
+          <div className="logo">
+            <img src="/images/logo.png" alt="Logo" />
           </div>
+          <ul
+            className={Mobile ? "navMenu-list" : "flexSB"}
+            onClick={() => setMobile(false)}
+          >
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/movies">Movies</Link>
+            </li> {/* Link to Movies */}
+            <li>
+              <Link to="/">Contact</Link>
+            </li>
+          </ul>
+          <button className="toggle" onClick={() => setMobile(!Mobile)}>
+            {Mobile ? (
+              <i className="fa fa-times"></i>
+            ) : (
+              <i className="fa fa-bars"></i>
+            )}
+          </button>
+        </nav>
+        <div className="account flexSB">
+          {isLoggedIn ? (
+            <div className="user-icon" onClick={handleDropdownToggle}>
+              <img src="/images/user.png" alt="User" />
+              {isDropdownOpen && (
+                <div className="dropdown-menu">
+                  {/* Gọi hàm handleLogout khi bấm Logout */}
+                  <Link to="/" onClick={handleLogout}>
+                    Logout
+                  </Link>
+                </div>
+              )}
+            </div>
+          ) : (
+            <Link to="/login">
+              <button>Login</button>
+            </Link>
+          )}
         </div>
-      </header>
-    </>
-  )
-}
+      </div>
+    </header>
+  );
+};
 
-export default Header
+export default Header;
+
+
+

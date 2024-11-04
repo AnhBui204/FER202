@@ -1,8 +1,9 @@
-import React, { useState, Suspense, lazy } from "react";
+import React, { useState, Suspense, lazy, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import "./App.css";
-import "./index.css";
-import MovieContextProvider from "./components/admin/MovieContext"; // Move this to the top
+import MovieContextProvider from "./components/admin/MovieContext";
+import MoviesList from "./components/movies/MoviesList";
+import LoadingSpinner from "./components/utils/LoadingSpinner"; // Import LoadingSpinner
 
 // Lazy load components
 const HomePage = lazy(() => import("./home/HomePage"));
@@ -12,21 +13,31 @@ const Footer = lazy(() => import("./components/footer/Footer"));
 const ManageMovie = lazy(() => import("./components/admin/ManageMovie"));
 const LoginForm = lazy(() => import("./components/LoginForm/LoginForm"));
 
+
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // Trạng thái đăng nhập
+  const [isLoggedIn, setIsLoggedIn] = useState(
+    sessionStorage.getItem("isLoggedIn") === "true"
+  );
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      sessionStorage.setItem("isLoggedIn", "true");
+    } else {
+      sessionStorage.removeItem("isLoggedIn");
+      sessionStorage.removeItem("role");
+    }
+  }, [isLoggedIn]);
 
   return (
     <Router>
       <MovieContextProvider>
-        <div className="container">
-          <Suspense fallback={<div>Loading...</div>}>
+        <div className="">
+          <Suspense fallback={<LoadingSpinner />}>
             <Routes>
-              {/* Route cho trang đăng nhập, không có Header và Footer */}
               <Route
                 path="/login"
                 element={<LoginForm setIsLoggedIn={setIsLoggedIn} />}
               />
-              {/* Route cho các trang chính */}
               <Route
                 path="/"
                 element={
@@ -47,10 +58,26 @@ function App() {
                   </>
                 }
               />
-              {/* Route cho Admin */}
-              <Route path="/admin" element={<ManageMovie />} />
-
-              {/* Điều hướng người dùng đến trang thích hợp dựa trên trạng thái đăng nhập */}
+              <Route
+                path="/movies"
+                element={
+                  <>
+                    <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+                    <MoviesList />
+                    <Footer />
+                  </>
+                }
+              />
+              <Route
+                path="/admin"
+                // element={<ManageMovie />}
+                element={
+                  <>
+                    <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+                    <ManageMovie />
+                  </>
+                }
+              />
               <Route
                 path="*"
                 element={<Navigate to={isLoggedIn ? "/" : "/login"} />}

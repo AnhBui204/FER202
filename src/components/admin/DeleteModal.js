@@ -1,6 +1,6 @@
 import React from 'react';
 import { Modal } from 'react-bootstrap';
-import '../../admin.css';
+
 
 const DeleteModal = ({ show, onHide, onConfirm }) => {
   return (

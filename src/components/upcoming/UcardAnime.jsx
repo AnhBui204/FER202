@@ -20,4 +20,4 @@ const UcardAnime = ({ item: { id, cover, name, time } }) => {
   )
 }
 
-export default UcardAnime;
+export default UcardAnime

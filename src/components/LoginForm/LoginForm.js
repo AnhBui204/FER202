@@ -59,7 +59,7 @@ const LoginForm = ({ setIsLoggedIn }) => {
       );
       if (user) {
         setIsLoggedIn(true);
-        localStorage.setItem("role", user.role);
+        sessionStorage.setItem("role", user.role);
         if (user.role === "admin") {
           navigate("/admin");
         } else {
@@ -152,24 +152,16 @@ const LoginForm = ({ setIsLoggedIn }) => {
             <div className="register-link">
               <p>
                 Don't have an account?{" "}
-                <button
-                  type="button"
-                  className="link-button"
-                  onClick={() => setIsRegistering(true)}
-                >
+                <a href="#" onClick={() => setIsRegistering(true)}>
                   Register
-                </button>
+                </a>
               </p>
             </div>
             <div className="forgot-password-link">
               <p>
-                <button
-                  type="button"
-                  className="link-button"
-                  onClick={() => setIsForgotPassword(true)}
-                >
+                <a href="#" onClick={() => setIsForgotPassword(true)}>
                   Forgot Password?
-                </button>
+                </a>
               </p>
             </div>
           </>
@@ -190,13 +182,9 @@ const LoginForm = ({ setIsLoggedIn }) => {
             <div className="login-link">
               <p>
                 Already have an account?{" "}
-                <button
-                  type="button"
-                  className="link-button"
-                  onClick={() => setIsRegistering(false)}
-                >
+                <a href="#" onClick={() => setIsRegistering(false)}>
                   Login
-                </button>
+                </a>
               </p>
             </div>
           </>
